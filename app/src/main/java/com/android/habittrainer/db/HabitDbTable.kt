@@ -27,7 +27,12 @@ class HabitDbTable(context: Context){
         return id
     }
 
-    fun readAllHabits(): List<Habit>{
+    fun delete(name: String){
+        val db = dbHelper.writableDatabase
+        db.delete(HabitEntry.TABLE_NAME, "title = ?", arrayOf(name))
+    }
+
+    fun readAllHabits(): MutableList<Habit>{
         val columns = arrayOf(HabitEntry._ID,HabitEntry.TITLE_COL,HabitEntry.DESCR_COL,HabitEntry.IMAGE_COL)
 
         val order = "${HabitEntry._ID} ASC"

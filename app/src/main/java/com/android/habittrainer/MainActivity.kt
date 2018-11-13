@@ -27,6 +27,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun updateData() {
+        rv.adapter?.notifyDataSetChanged()
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.add_habit){
